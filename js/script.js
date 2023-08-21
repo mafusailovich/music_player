@@ -89,9 +89,9 @@ function AudioPlayer(player) {
     //переменная для хранения позиции в списке (по умолчанию стоит на нуле)
     this.num = 0;
 
-    this.listTracks = [['./audio/Veselie_gvozdiki.ogg', 'Веселые гвоздики', 'Vladimir Fesenko'],
-    ['./audio/Vestnik.ogg', 'Вестник', 'Vladimir Fesenko'],
-    ['./audio/Vremena_goda_Leto.ogg', 'Времена года', 'Vladimir Fesenko']];
+    this.listTracks = [['audio/Veselie_gvozdiki.ogg', 'Веселые гвоздики', 'Vladimir Fesenko'],
+    ['audio/Vestnik.ogg', 'Вестник', 'Vladimir Fesenko'],
+    ['audio/Vremena_goda_Leto.ogg', 'Времена года', 'Vladimir Fesenko']];
 
 
     //метод загружает в обект данные о треке
@@ -136,7 +136,6 @@ function AudioPlayer(player) {
         this.pPimg[1].style.transform = 'scale(2,2)';
         this.pPimg[3].style.transform = 'scale(2,2)';
         this.audioElement.play();
-
     }
 
 
