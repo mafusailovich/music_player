@@ -188,8 +188,15 @@ function AudioPlayer(player) {
 
         //управление прогресс баром
         //получаем координаты и разницу в стартовых положениях кнопки управления и строки
-        const coordBtnStart = this.cBtn.getBoundingClientRect().left;
-        const diffLineBtn = this.tLine.getBoundingClientRect().left - this.cBtn.getBoundingClientRect().left;
+        let coordBtnStart = this.cBtn.getBoundingClientRect().left;
+        let diffLineBtn = this.tLine.getBoundingClientRect().left - this.cBtn.getBoundingClientRect().left;
+
+        //данное действие нужно для переопределения стартовых координат
+        //при изменени размеров окна
+        window.addEventListener(`resize`, ()=>{
+            coordBtnStart = this.cBtn.getBoundingClientRect().left;
+            diffLineBtn = this.tLine.getBoundingClientRect().left - this.cBtn.getBoundingClientRect().left;
+        });
 
         //функция устанавливает позицию элемента
         this.setPosition = function (evt) {
@@ -204,25 +211,16 @@ function AudioPlayer(player) {
         this.tLine.addEventListener(`dragover`, (event) => {
             //разрешаю перемещать элементы в эту область
             event.preventDefault(); //отменяем действие по умолчанию
-
             this.setPosition(event);
         });
+
+
 
         this.tLine.addEventListener('click', (event) => {
             this.setPosition(event);
         });
     };
 
-
-
-    //функция переходит к следующиему или предыдущему треку в альбоме
-    // this.nextprevTrack = function () {
-
-
-    //     });
-    // };
-
-    // this.nextprevTrack();
     this.playPause();
 
 }
